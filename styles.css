@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 25%, #19273f 0, #0e1522 36%, #070b13 78%);
+  color: #f7f7f1;
+  font-family: "IBM Plex Sans KR", system-ui, sans-serif;
+}
+.game-shell { width: min(88vw, 72dvh, 560px); padding: 14px 0 12px; }
+.topbar { display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: 0 4px 14px; }
+.brand { color: #fff4ae; font: 28px/1 "Black Ops One", Impact, sans-serif; letter-spacing: 1.4px; white-space: nowrap; }
+.brand-dot { display: inline-block; width: 13px; height: 13px; margin: 0 4px 2px 0; background: #ffdf31; border-radius: 50%; }
+.scoreboard { display: flex; gap: clamp(13px, 4vw, 34px); text-align: right; }
+.scoreboard div { display: grid; gap: 1px; }
+.scoreboard span { color: #9fabc1; font-size: 10px; font-weight: 600; letter-spacing: .09em; }
+.scoreboard strong { color: #fff; font-size: 15px; letter-spacing: .04em; }
+#lives { color: #ffe024; font-size: 13px; word-spacing: 2px; }
+.board-frame { position: relative; overflow: hidden; border: 2px solid #293c63; border-radius: 12px; background: #03060e; box-shadow: 0 18px 55px #0008, inset 0 0 36px #0c2350; }
+canvas { display: block; width: 100%; height: auto; image-rendering: crisp-edges; }
+.message { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; color: #ffe33d; font: 24px "Black Ops One", sans-serif; letter-spacing: 1px; text-shadow: 0 2px #936f00; opacity: 0; transition: opacity .16s; }
+.message.visible { opacity: 1; }
+.skill-panel { position: absolute; z-index: 1; left: 10px; bottom: 10px; width: 164px; padding: 8px; border: 1px solid #38557b; border-radius: 9px; background: #07101fe8; box-shadow: 0 5px 18px #0008; pointer-events: none; }
+.skill-panel h2 { margin: 0 0 6px; color: #9aabc8; font-size: 9px; font-weight: 700; letter-spacing: .14em; }
+.skill-card { display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 6px; padding: 5px 2px; border-top: 1px solid #22334e; color: #8998b0; }
+.skill-card:first-of-type { border-top: 0; }.skill-card.ready { color: #ecf5ff; }
+.skill-key { display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid currentColor; border-radius: 4px; color: #ffdf3d; font-size: 11px; font-weight: 700; }
+.skill-name { display: grid; gap: 1px; font-size: 11px; font-weight: 700; }.skill-name small { color: #8292ab; font-size: 8px; font-weight: 500; }
+.skill-status { min-width: 39px; color: #7789a6; font-size: 9px; text-align: right; }.skill-card.ready .skill-status { color: #6df0b2; }
+.skills-game { width: min(94vw, calc(72dvh + 174px), 734px); }
+.skills-game .board-frame { width: calc(100% - 174px); margin-left: 174px; overflow: visible; }
+.skills-game .skill-panel { right: calc(100% + 10px); bottom: 0; left: auto; }
+.controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px 20px; padding-top: 13px; color: #aeb8c9; font-size: 12px; }
+kbd { display: inline-block; padding: 1px 5px; border: 1px solid #50627f; border-radius: 4px; color: #edf1f8; font-family: inherit; font-size: 10px; }
+.intro { position: fixed; inset: 0; z-index: 2; display: grid; place-items: center; padding: 20px; background: #02050bd9; backdrop-filter: blur(7px); }
+.intro.hidden { display: none; }
+.intro-card { width: min(100%, 480px); padding: 30px; border: 1px solid #385480; border-radius: 18px; background: linear-gradient(145deg, #16243a, #0b101c); box-shadow: 0 22px 70px #000b; }
+.eyebrow { margin: 0 0 4px; color: #ffdf35; font-size: 11px; font-weight: 700; letter-spacing: .2em; }
+h1 { margin: 0; color: #fff4a4; font: 45px/1 "Black Ops One", Impact, sans-serif; letter-spacing: 1px; }
+.intro-copy { margin: 13px 0 22px; color: #cbd3df; font-size: 14px; }
+.rule-grid { display: grid; gap: 10px; padding: 17px; border-radius: 10px; background: #07101f; }
+.rule-grid div { display: grid; grid-template-columns: 23px 1fr; align-items: center; gap: 8px; color: #d6dce6; font-size: 13px; line-height: 1.45; }
+.rule-grid b { text-align: center; color: #d9e2f5; font-size: 19px; }
+.rule-grid .yellow { color: #ffde39; font-size: 15px; }.rule-grid .power { color: #ffbdde; font-size: 23px; }.rule-grid .ghost { color: #ff5b69; }
+.hint { margin: 16px 0 18px; color: #8e9db5; font-size: 12px; }
+button { width: 100%; border: 0; border-radius: 8px; padding: 14px 16px; background: #ffdc34; color: #15130c; cursor: pointer; font: 700 15px "IBM Plex Sans KR", sans-serif; transition: transform .15s, background .15s; }
+button:hover { transform: translateY(-2px); background: #ffe56b; } button span { padding-left: 5px; font-size: 19px; }
+@media (max-width: 520px) { .topbar { align-items: start; flex-direction: column; gap: 9px; }.scoreboard { width: 100%; justify-content: space-between; text-align: left; }.brand { font-size: 25px; }.intro-card { padding: 24px; } h1 { font-size: 38px; } }

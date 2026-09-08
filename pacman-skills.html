@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Pac Maze - Skills</title><link rel="stylesheet" href="styles.css" /></head>
+  <body>
+    <main class="game-shell skills-game" aria-label="팩맨 스킬 게임">
+      <header class="topbar"><div class="brand"><span class="brand-dot"></span>PAC MAZE</div><div class="scoreboard" aria-live="polite"><div><span>점수</span><strong id="score">00000</strong></div><div><span>최고 점수</span><strong id="high-score">00000</strong></div><div><span>목숨</span><strong id="lives">● ● ●</strong></div></div></header>
+      <section class="board-frame">
+        <canvas id="game" width="672" height="672" aria-label="팩맨 미로"></canvas><div id="message" class="message" aria-live="assertive"></div>
+        <aside class="skill-panel" aria-label="스킬 상태"><h2>SKILLS</h2><div class="skill-card" data-skill="jump"><span class="skill-key">Q</span><span class="skill-name">점프<small>벽 1칸 넘기 · CD 10초</small></span><span class="skill-status">사용 가능</span></div><div class="skill-card" data-skill="freeze"><span class="skill-key">W</span><span class="skill-name">얼리기<small>5×5 범위 · CD 20초</small></span><span class="skill-status">사용 가능</span></div><div class="skill-card" data-skill="warp"><span class="skill-key">E</span><span class="skill-name">워프<small>중앙 이동 · CD 30초</small></span><span class="skill-status">사용 가능</span></div></aside>
+      </section>
+      <footer class="controls"><span><kbd>방향키</kbd> 또는 <kbd>A S D</kbd> 이동</span><span><kbd>Q W E</kbd> 스킬</span><span><kbd>Space</kbd> 일시정지</span></footer>
+    </main>
+    <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title"><div class="intro-card"><p class="eyebrow">5 GHOSTS · 3 SKILLS</p><h1 id="intro-title">PAC MAZE</h1><p class="intro-copy">다섯 유령을 피하고, 스킬을 전략적으로 사용하세요.</p><div class="rule-grid"><div><b class="yellow">Q</b><span>정면의 벽 한 칸을 넘어 반대편 길에 착지합니다. 10초 쿨타임.</span></div><div><b class="power">W</b><span>5×5 범위 안 유령을 3초 동안 얼립니다. 20초 쿨타임.</span></div><div><b class="ghost">E</b><span>미로 중앙의 워프 지점으로 이동합니다. 30초 쿨타임.</span></div><div><b>●</b><span>점과 파워 펠릿을 모두 먹으면 라운드를 클리어합니다.</span></div></div><p class="hint">스킬 상태와 남은 쿨타임은 미로 왼쪽 아래에서 확인할 수 있어요.</p><button id="start-button" type="button">게임 시작 <span>→</span></button></div></div>
+    <script src="game.js"></script>
+  </body>
+</html>
